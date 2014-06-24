@@ -27,6 +27,11 @@ process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(50)
 )
 
+# Randomize the random numbers
+from IOMC.RandomEngine.RandomServiceHelper import RandomNumberServiceHelper
+randSvc = RandomNumberServiceHelper(process.RandomNumberGeneratorService)
+randSvc.populate()
+
 # Input source
 process.source = cms.Source("EmptySource")
 
